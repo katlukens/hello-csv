@@ -8,7 +8,7 @@ import (
 	"time"
 )
 
-func main() {
+func selectByDate() {
 
 	// Define your date range
 	startDate, err := time.Parse("1/2/2006", "5/21/2024")
@@ -50,6 +50,8 @@ func main() {
 			continue
 		}
 
+		defer f.Close()
+
 		// Create a CSV reader
 		reader := csv.NewReader(f)
 
@@ -80,6 +82,5 @@ func main() {
 				}
 			}
 		}
-		f.Close()
 	}
 }
